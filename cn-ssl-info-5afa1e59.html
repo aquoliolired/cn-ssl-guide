@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱奇艺体育 · 用途速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f9fc;
+            color: #1f2a36;
+            line-height: 1.6;
+            padding: 1.5rem 1rem 3rem;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* header / hero */
+        .hero {
+            margin-bottom: 2.5rem;
+            padding: 1.8rem 0 0.8rem;
+            border-bottom: 2px dashed #b3d9d9;
+        }
+
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1d4e4e;
+        }
+
+        .hero .sub {
+            font-size: 0.95rem;
+            color: #3f6b6b;
+            margin-top: 0.3rem;
+            border-left: 4px solid #3fa3a3;
+            padding-left: 0.8rem;
+        }
+
+        /* 目录感网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin: 2.2rem 0 2.8rem;
+        }
+
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 6px 18px rgba(0, 60, 60, 0.06);
+            transition: transform 0.15s, box-shadow 0.2s;
+            border: 1px solid #e1edf0;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(33, 115, 115, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1a5858;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3 i {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+            background: #3fa3a3;
+            margin-right: 6px;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #2b424a;
+            margin-top: 0.15rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.78rem;
+            background: #e3f2f2;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            color: #1f6767;
+        }
+
+        /* 说明区 + 提示区 并排 */
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            margin: 2.2rem 0 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .info-row {
+                flex-direction: row;
+            }
+            .info-row > * {
+                flex: 1;
+            }
+        }
+
+        .note-box {
+            background: #eaf6f6;
+            border-radius: 20px;
+            padding: 1.4rem 1.4rem 1.6rem;
+            border-left: 6px solid #339999;
+        }
+
+        .note-box h4 {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #114d4d;
+            margin-bottom: 0.4rem;
+        }
+
+        .note-box p,
+        .note-box li {
+            font-size: 0.9rem;
+            color: #1d4545;
+        }
+
+        .note-box ul {
+            padding-left: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        .tip-box {
+            background: white;
+            border-radius: 20px;
+            padding: 1.4rem 1.4rem 1.6rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #d4e8e8;
+        }
+
+        .tip-box h4 {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #154f4f;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tip-box h4::before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #51b3b3;
+            border-radius: 3px;
+        }
+
+        .tip-box p {
+            font-size: 0.9rem;
+            color: #274e4e;
+            margin-top: 0.3rem;
+        }
+
+        /* 相关信息区 */
+        .related {
+            margin: 2.8rem 0 2.2rem;
+            padding: 1.2rem 0;
+            border-top: 1px solid #cde0e0;
+            border-bottom: 1px solid #cde0e0;
+        }
+
+        .related h5 {
+            font-weight: 500;
+            color: #1d6363;
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+        }
+
+        @media (min-width: 500px) {
+            .related-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .rel-item {
+            background: #f1f8f8;
+            padding: 0.6rem 1rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            color: #1d5252;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .rel-item::before {
+            content: "▹";
+            color: #3fa3a3;
+        }
+
+        /* 嵌入链接的段落 */
+        .inline-link-section {
+            margin: 1.6rem 0 2rem;
+            padding: 0.8rem 1.2rem;
+            background: #ecf5f5;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .inline-link-section a {
+            color: #1d7a7a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .inline-link-section a:hover {
+            background: #c4e6e6;
+            text-decoration: none;
+        }
+
+        /* 小字 */
+        .footnote {
+            margin-top: 2.8rem;
+            font-size: 0.78rem;
+            color: #607d7d;
+            text-align: center;
+            border-top: 1px dashed #cbdcdc;
+            padding-top: 1.6rem;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero -->
+    <header class="hero">
+        <h1>📋 爱奇艺体育 · 用途速览</h1>
+        <div class="sub">面向希望快速定位网站价值的用户 · 目录式索引</div>
+    </header>
+
+    <!-- 网格卡片 —— 知识库入口式目录 -->
+    <div class="grid">
+        <div class="card">
+            <h3><i></i> 平台定位</h3>
+            <p>集赛事直播、点播回放、体育资讯于一体的综合体育内容服务。覆盖足球、篮球、网球、搏击等多种项目。</p>
+            <span class="tag">赛事版权</span>
+        </div>
+        <div class="card">
+            <h3><i></i> 内容体系</h3>
+            <p>包括中超、欧洲五大联赛、欧冠、NBA、UFC、WWE 及各类锦标赛。提供高清画质与多视角切换。</p>
+            <span class="tag">直播 & 回放</span>
+        </div>
+        <div class="card">
+            <h3><i></i> 用户场景</h3>
+            <p>适合体育迷实时追赛、错过直播后补看集锦、关注深度专栏与球员动态。会员可解锁更多专属内容。</p>
+            <span class="tag">观赛助手</span>
+        </div>
+    </div>
+
+    <!-- 嵌入链接的自然句子 -->
+    <div class="inline-link-section">
+        <p>如果您正在寻找一站式的体育观赛平台，不妨了解 <a href="https://cn-ssl-iqy.com">爱奇艺体育</a> 所涵盖的赛事矩阵与会员体系。</p>
+    </div>
+
+    <!-- 说明区 + 提示区 -->
+    <div class="info-row">
+        <div class="note-box">
+            <h4>📌 说明 · 快速识别</h4>
+            <p>本页面为用途索引页，不替代原站功能。通过以下维度帮您判断 <strong>爱奇艺体育</strong> 是否匹配您的需求：</p>
+            <ul>
+                <li><strong>直播范围</strong>：国内外主流足球联赛、篮球及格斗赛事</li>
+                <li><strong>特色功能</strong>：多语言解说、实时数据、精彩回放自动剪辑</li>
+                <li><strong>设备支持</strong>：网页端、移动端 App、TV 端均可使用</li>
+            </ul>
+        </div>
+        <div class="tip-box">
+            <h4>💡 提示 · 使用参考</h4>
+            <p>如果您是首次接触该平台，建议先浏览免费内容区，再根据喜好选择会员方案。部分赛事可能需要单独购买观赛券。</p>
+            <p style="margin-top: 0.8rem;">此外，<strong>爱奇艺体育</strong> 与多家版权方保持合作，赛程安排以站内公告为准。</p>
+        </div>
+    </div>
+
+    <!-- 相关信息区 -->
+    <div class="related">
+        <h5>🔗 相关信息 · 快速索引</h5>
+        <div class="related-grid">
+            <div class="rel-item">赛事日历 & 热门赛程</div>
+            <div class="rel-item">会员权益对比</div>
+            <div class="rel-item">多终端同步与投屏</div>
+            <div class="rel-item">解说阵容与特色节目</div>
+            <div class="rel-item">常见问题 · 播放与订阅</div>
+            <div class="rel-item">最新版权动态</div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div style="margin: 1.2rem 0 2rem; background: #fafcfc; padding: 0.8rem 1.2rem; border-radius: 18px; border: 1px solid #dcebeb;">
+        <p style="font-weight: 500; color: #1f5f5f; font-size: 0.9rem;">❓ 常见问题摘要</p>
+        <p style="font-size: 0.85rem; color: #3a5e5e; margin-top: 0.2rem;">
+            · 非会员能否观看直播？—— 部分免费场次可观看，热门赛事通常需会员。<br>
+            · 是否支持离线缓存？—— 移动端 App 提供缓存功能，网页端暂不支持。<br>
+            · 画质选项有哪些？—— 流畅、高清、超清，部分场次提供 4K 体验。
+        </p>
+    </div>
+
+    <!-- 再次自然引用链接（第二个不同语境） -->
+    <p style="font-size: 0.88rem; color: #2f6b6b; margin: 0.2rem 0 0.6rem;">
+        若想直接浏览最新赛事列表，可前往 <a href="https://cn-ssl-iqy.com">爱奇艺体育</a> 查看当日直播排期。
+    </p>
+
+    <!-- 脚注 -->
+    <div class="footnote">
+        本介绍页仅用于用途说明，所有内容基于公开信息整理 · 实际服务以原站为准
+    </div>
+</div>
+</body>
+</html>
